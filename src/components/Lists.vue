@@ -1,8 +1,8 @@
 <template>
   <div class="card" style="width: 30rem">
     <div class="card-header">Lists</div>
-    <p class="text" v-if="isListsEmpty">There is no any list</p>
-    <ul class="list-group list-group-flush" v-if="!isListsEmpty">
+    <p class="text" v-if="!lists">There is no any list</p>
+    <ul class="list-group list-group-flush" v-if="lists">
       <li
         class="list-group-item list-group-item-action"
         :class="{
@@ -26,6 +26,8 @@
 <script>
 import Form from "./Form.vue";
 import List from "./List.vue";
+import { mapGetters } from "vuex";
+
 export default {
   name: "Lists",
   components: {
@@ -34,28 +36,23 @@ export default {
   },
   methods: {
     handleSubmit(text) {
-      this.$store.dispatch("addList", text);
+      this.$store.dispatch("lists/addList", text);
     },
     handleListDelete(id) {
-      this.$store.dispatch("deleteList", id);
+      this.$store.dispatch("lists/deleteList", id);
     },
     selectList(list) {
-      this.$store.commit("selectList", list);
+      this.$store.commit("lists/selectList", list);
     },
   },
   computed: {
-    activeList() {
-      return this.$store.state.activeList;
-    },
-    isListsEmpty() {
-      return this.$store.getters.isListsEmpty;
-    },
-    lists() {
-      return this.$store.state.lists;
-    },
+    ...mapGetters({
+      lists: "lists/lists",
+      activeList: "lists/activeList",
+    }),
   },
   created() {
-    this.$store.dispatch("getLists");
+    this.$store.dispatch("lists/getLists");
   },
 };
 </script>

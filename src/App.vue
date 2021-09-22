@@ -1,13 +1,29 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div>
+    <Nav />
+    <router-view />
   </div>
-  <router-view />
 </template>
+<script>
+import { mapGetters } from "vuex";
+import Nav from "./components/Nav.vue";
+export default {
+  components: {
+    Nav,
+  },
+  computed: {
+    ...mapGetters({
+      user: "auth/user",
+    }),
+  },
+};
+</script>
 
 <style lang="scss">
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+.app {
+  height: 100vh;
+}
 .list-item {
   display: flex;
   justify-content: space-between;

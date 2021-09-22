@@ -1,35 +1,33 @@
 {
   "lists": [
     {
-      "title": "first-list",
+      "title": "dsadsa",
       "tasks": [
         {
           "id": 1,
-          "title": "to do",
+          "title": "dsadsa",
           "isDone": false
         },
         {
           "id": 2,
-          "title": "try-catch",
-          "isDone": false
-        },
-        {
-          "id": 3,
-          "title": "error handler",
-          "isDone": false
-        },
-        {
-          "id": 4,
-          "title": "style",
+          "title": "dsadsa",
           "isDone": false
         }
       ],
       "id": 1
     },
     {
-      "title": "second-list",
+      "title": "dsadsa",
       "tasks": [],
       "id": 2
+    }
+  ],
+  "users": [
+    {
+      "username": "nursultannd",
+      "email": "nazarbay.ktl@gmail.com",
+      "password": "123",
+      "id": 1
     }
   ]
 }
